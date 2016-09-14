@@ -14,6 +14,10 @@ const defaultState = {
   posts: posts,
   comments: comments
 
+  // ES6 version just
+  // posts,
+  // comments
+
 };
 
 const store = createStore(rootReducer, defaultState);
