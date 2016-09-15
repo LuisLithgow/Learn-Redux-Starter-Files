@@ -9,10 +9,10 @@ const Main = React.createClass({
           <Link to="/">Reduxstagram</Link>
         </h1>
         {React.cloneElement(this.props.children, this.props)}
+
       </div>
       )
   }
-
 
 });
 

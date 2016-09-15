@@ -7,22 +7,28 @@ import { render } from 'react-dom';
 import css from './styles/style.styl' ;
 
 // import components
-import Main     from './components/Main';
+// importing App instead of Mainbc Main is imported in App.js
+import App     from './components/App';
 import Single   from './components/Single';
 import PhotoGrid from './components/PhotoGrid';
 
-// import react-router depths
-import { Router, Route, indexRoute, browserHistory } from 'react-router';
+// import react-router dependencies
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+
+import store, { history } from './store';
 
 // must build a route component
 const router = (
-  <Router history={browserHistory}>
-    <Route path="/" component={Main}>
-      <indexRoute component={PhotoGrid} ></indexRoute>
-      <Route path="/view/:postId" component={Single}></Route>
-    </Route>
+  <Provider store={store}>
+    <Router history={ history }>
+      <Route path="/" component={App}>
+        <IndexRoute component={PhotoGrid}></IndexRoute>
+        <Route path="/view/:postId" component={Single}></Route>
+      </Route>
 
-  </Router>
+    </Router>
+  </Provider>
   )
 
 render(router,document.getElementById("root") );
