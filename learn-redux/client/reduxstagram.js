@@ -15,8 +15,21 @@ import PhotoGrid from './components/PhotoGrid';
 // import react-router dependencies
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
 import { Provider } from 'react-redux';
-
 import store, { history } from './store';
+import Raven from 'raven-js';
+import { sentry_url } from './data/config';
+
+// cal install method for Raven
+// Raven.config(sentry_url, {
+//   tags:{
+//     git_commit:'something...',
+//     userLevel:'editor'
+//   }
+// }).install();
+
+  // Raven.captureMessage('Something bad happened!');
+  // Raven.showReportDialog();
+// console.log(window.doesNotExist.nope);
 
 // must build a route component
 const router = (
